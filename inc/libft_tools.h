@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   libft_tools.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperez-b <aperez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 13:04:47 by aperez-b          #+#    #+#             */
-/*   Updated: 2021/10/13 10:11:16 by aperez-b         ###   ########.fr       */
+/*   Created: 2022/06/23 13:47:06 by msoler-e          #+#    #+#             */
+/*   Updated: 2022/06/23 13:47:08 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef LIBFT_TOOLS_H
 
