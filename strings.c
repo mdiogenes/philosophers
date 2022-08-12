@@ -6,11 +6,11 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:46:43 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/06/23 13:46:45 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/06/29 12:28:10 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/libft_tools.h"
+#include "philo.h"
 
 size_t	ft_strlen(const char *s)
 {

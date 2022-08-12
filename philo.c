@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 13:44:54 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/06/23 13:44:57 by msoler-e         ###   ########.fr       */
+/*   Created: 2022/08/04 11:40:31 by msoler-e          #+#    #+#             */
+/*   Updated: 2022/08/04 11:49:36 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo.h"
+
+#include "philo.h"
 
 void	philo_actions(t_list *node, t_philo *philo, t_philo *next)
 {
@@ -105,3 +106,5 @@ void	*philo_init(int philo_count, t_list *philos)
 	}
 	return (NULL);
 }
+
+

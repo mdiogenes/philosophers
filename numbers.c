@@ -6,11 +6,11 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:46:26 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/06/23 13:46:29 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/06/29 12:27:36 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/libft_tools.h"
+#include "philo.h"
 
 int	ft_isspace(char c)
 {

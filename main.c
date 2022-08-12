@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 13:44:36 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/06/23 13:44:40 by msoler-e         ###   ########.fr       */
+/*   Created: 2022/06/29 11:46:26 by msoler-e          #+#    #+#             */
+/*   Updated: 2022/08/04 11:49:17 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo.h"
+#include "philo.h"
+
 
 static t_philo_data	parse_args(char **argv)
 {
@@ -68,3 +69,4 @@ int	main(int argc, char **argv)
 	philo_exit(philos, NULL, END);
 	return (0);
 }
+
