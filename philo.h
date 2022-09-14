@@ -6,7 +6,7 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:18:00 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/08/04 11:49:10 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/09/14 12:21:55 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,28 +32,28 @@
 # include <pthread.h>
 # include <unistd.h>
 
-# define PHILO_EAT "\033[1;93mis eating 🍝\033[0;39m"
-# define PHILO_SLEEP "\033[1;95mis sleeping 🌙\033[0;39m"
-# define PHILO_THINK "\033[1;90mis thinking 💭\033[0;39m"
-# define PHILO_TAKE_FORK "\033[1;94mhas taken a fork 🍴\033[0;39m"
-# define PHILO_DIE "\033[1;91mdied 💀\033[0;39m"
+# define PHILO_EAT "\033[1;93m is eating \033[0;39m"
+# define PHILO_SLEEP "\033[1;95m is sleeping \033[0;39m"
+# define PHILO_THINK "\033[1;90m is thinking \033[0;39m"
+# define PHILO_TAKE_FORK "\033[1;94m has taken a fork \033[0;39m"
+# define PHILO_DIE "\033[1;91mdied \033[0;39m"
 
-/* Enum to handle errors in philosophers */
+/* philosophers errors */
 typedef enum e_philo_err
 {
 	END = 1,
 	INV_ARGS = -1,
-	TOO_MANY_PHILO = -2,
-	INV_PHILO_COUNT = -3,
-	INV_DIE_TIME = -4,
-	INV_EAT_TIME = -5,
-	INV_SLEEP_TIME = -6,
-	INV_REPEAT_COUNT = -7,
+	MAX_PHILO = -2,
+	INV_PHILO = -3,
+	INV_DIE = -4,
+	INV_EAT = -5,
+	INV_SLEEP = -6,
+	INV_REPEAT = -7,
 	NO_MEMORY = -8,
 	THREAD_FAILED = -9
 }			t_philo_err;
 
-/* Struct to store all data */
+/* Structura general */
 typedef struct s_philo_data
 {
 	int				philo_count;
@@ -68,7 +68,7 @@ typedef struct s_philo_data
 	pthread_mutex_t	died_lock;
 }					t_philo_data;
 
-/* Struct to handle info for every philosopher */
+/* Structa per cada filosofr */
 typedef struct s_philo
 {
 	int					id;
