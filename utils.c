@@ -6,7 +6,7 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 11:42:13 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/09/14 12:21:51 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/09/14 12:48:03 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,17 @@ int	philo_perror(char *param, t_philo_err err_code)
 		ft_putstr_fd("no memory left on device", 2);
 	if (err_code == THREAD_FAILED)
 		ft_putstr_fd("failed to create a thread", 2);
-	if (err_code == INV_PHILO_COUNT)
+	if (err_code == INV_PHILO)
 		ft_putstr_fd("invalid philosopher_count: ", 2);
-	if (err_code == INV_DIE_TIME)
+	if (err_code == INV_DIE)
 		ft_putstr_fd("invalid time_to_die: ", 2);
-	if (err_code == INV_EAT_TIME)
+	if (err_code == INV_EAT)
 		ft_putstr_fd("invalid time_to_eat: ", 2);
-	if (err_code == INV_SLEEP_TIME)
+	if (err_code == INV_SLEEP)
 		ft_putstr_fd("invalid time_to_sleep: ", 2);
-	if (err_code == INV_REPEAT_COUNT)
+	if (err_code == INV_REPEAT)
 		ft_putstr_fd("invalid repeat_times: ", 2);
-	if (err_code == TOO_MANY_PHILO)
+	if (err_code == MAX_PHILO)
 		ft_putstr_fd("system may not be able to handle that many threads: ", 2);
 	if (param && err_code != INV_ARGS && err_code != NO_MEMORY && \
 			err_code != THREAD_FAILED)
