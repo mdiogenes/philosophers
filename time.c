@@ -6,11 +6,12 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 11:41:20 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/09/14 11:24:55 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/09/29 13:44:46 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
 useconds_t	philo_get_time(void)
 {
 	struct timeval	t;

@@ -6,10 +6,9 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 11:40:31 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/09/14 12:05:24 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/09/29 13:41:27 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "philo.h"
 
@@ -67,8 +66,7 @@ void	*philo_monitor(t_list *start, t_philo *philo)
 		last_meal = philo->last_meal;
 		pthread_mutex_unlock(&philo->last_meal_lock);
 		if (philo_get_time() - philo->data->init_time - last_meal >= \
-			philo->data->die_time || eat_c == \
-			philo->data->philo_count * philo->data->repeat_count)
+			philo->data->die_time)
 		{
 			pthread_mutex_lock(&philo->data->died_lock);
 			philo->data->died = 1;
@@ -106,5 +104,3 @@ void	*philo_init(int philo_count, t_list *philos)
 	}
 	return (NULL);
 }
-
-

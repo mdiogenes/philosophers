@@ -6,7 +6,7 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 11:42:13 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/09/14 12:48:03 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/09/29 13:46:08 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ void	philo_timestamp(t_list *philos, char *action, useconds_t t)
 			eat_count && (!died || action[7] == 'd'))
 	{
 		printf("[\033[1;39m%06u\033[0;39m]  \033[1;96m%03d  \033[0;39m%s\n", \
-			time, philo->id, action);
+				time, philo->id, action);
 	}
-	if (action[10] == 'e')
+	if (action[11] == 'e')
 		philo->data->eat_count++;
 	pthread_mutex_unlock(&philo->data->eat_count_lock);
 	pthread_mutex_unlock(&philo->data->died_lock);

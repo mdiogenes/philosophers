@@ -6,12 +6,11 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 11:46:26 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/09/14 12:21:42 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/09/29 13:38:53 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
 
 static t_philo_data	parse_args(char **argv)
 {
@@ -54,7 +53,6 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	d = parse_args(argv);
-
 	if (d.philo_count <= 0 || d.philo_count > 800 || d.die_time == -1 || \
 		d.eat_time == -1 || d.sleep_time == -1 || d.repeat_count == -1 || \
 		!d.repeat_count)
@@ -64,12 +62,9 @@ int	main(int argc, char **argv)
 	d.eat_count = 0;
 	pthread_mutex_init(&d.died_lock, NULL);
 	pthread_mutex_init(&d.eat_count_lock, NULL);
-	//incialitzem tots el numeros de filososfs a temps 0 i amb les dades de mort menjar etc,,
 	philos = philo_lst(&d);
 	ft_lstlast(philos)->next = philos;
-	/////AQUIIIIII
 	philo_init(d.philo_count, philos);
 	philo_exit(philos, NULL, END);
 	return (0);
 }
-
