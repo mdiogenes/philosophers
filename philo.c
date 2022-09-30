@@ -6,7 +6,7 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 11:40:31 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/09/29 13:41:27 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/09/30 11:43:02 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 void	philo_actions(t_list *node, t_philo *philo, t_philo *next)
 {
 	pthread_mutex_lock(&philo->fork_lock);
-	philo_timestamp(node, PHILO_TAKE_FORK, 0);
+	timestamp(node, PHILO_TAKE_FORK, 0);
 	pthread_mutex_lock(&next->fork_lock);
-	philo_timestamp(node, PHILO_TAKE_FORK, 0);
+	timestamp(node, PHILO_TAKE_FORK, 0);
 	pthread_mutex_lock(&philo->last_meal_lock);
-	philo->last_meal = philo_get_time() - philo->data->init_time;
+	philo->last_meal = get_time() - philo->data->i_time;
 	pthread_mutex_unlock(&philo->last_meal_lock);
-	philo_timestamp(node, PHILO_EAT, philo->data->eat_time);
-	philo_timestamp(node, PHILO_SLEEP, 0);
+	timestamp(node, PHILO_EAT, philo->data->eat_time);
+	timestamp(node, PHILO_SLEEP, 0);
 	pthread_mutex_unlock(&next->fork_lock);
 	pthread_mutex_unlock(&philo->fork_lock);
 	ft_usleep(philo->data->sleep_time);
-	philo_timestamp(node, PHILO_THINK, 0);
+	timestamp(node, PHILO_THINK, 0);
 }
 
 void	*start_thread(void *node)
@@ -51,7 +51,7 @@ void	*start_thread(void *node)
 	return (NULL);
 }
 
-void	*philo_monitor(t_list *start, t_philo *philo)
+void	*monitor(t_list *start, t_philo *philo)
 {
 	long	eat_c;
 	long	last_meal;
@@ -65,14 +65,14 @@ void	*philo_monitor(t_list *start, t_philo *philo)
 		pthread_mutex_lock(&philo->last_meal_lock);
 		last_meal = philo->last_meal;
 		pthread_mutex_unlock(&philo->last_meal_lock);
-		if (philo_get_time() - philo->data->init_time - last_meal >= \
+		if (get_time() - philo->data->i_time - last_meal >= \
 			philo->data->die_time)
 		{
 			pthread_mutex_lock(&philo->data->died_lock);
 			philo->data->died = 1;
 			pthread_mutex_unlock(&philo->data->died_lock);
 			if (eat_c != philo->data->philo_count * philo->data->repeat_count)
-				philo_timestamp(start, PHILO_DIE, 0);
+				timestamp(start, PHILO_DIE, 0);
 			return (NULL);
 		}
 		start = start->next;
@@ -91,10 +91,10 @@ void	*philo_init(int philo_count, t_list *philos)
 	{
 		philo = start->content;
 		if (pthread_create(&philo->thread_id, NULL, start_thread, start))
-			return (philo_exit(philos, NULL, THREAD_FAILED));
+			return (ft_exit(philos, NULL, THREAD_FAILED));
 		start = start->next;
 	}
-	philo_monitor(start, NULL);
+	monitor(start, NULL);
 	i = -1;
 	while (++i < philo_count)
 	{

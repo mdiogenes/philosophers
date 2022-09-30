@@ -6,7 +6,7 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 11:42:13 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/09/29 13:46:08 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/09/30 11:45:48 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_philo	*philo_get_data(t_philo_data *d, int i)
 
 	node = malloc(sizeof(struct s_philo));
 	if (!node)
-		return (philo_exit(NULL, NULL, THREAD_FAILED));
+		return (ft_exit(NULL, NULL, THREAD_FAILED));
 	node->id = i + 1;
 	node->thread_id = 0;
 	pthread_mutex_init(&node->fork_lock, NULL);
@@ -40,27 +40,27 @@ t_list	*philo_lst(t_philo_data *d)
 	return (philos);
 }
 
-int	philo_perror(char *param, t_philo_err err_code)
+int	ft_error(char *param, t_philo_err err_code)
 {
 	ft_putstr_fd("philo: ", 2);
 	if (err_code == INV_ARGS)
-		ft_putstr_fd("invalid number of arguments", 2);
+		ft_putstr_fd("Error_number_arguments", 2);
 	if (err_code == NO_MEMORY)
-		ft_putstr_fd("no memory left on device", 2);
+		ft_putstr_fd("no memory", 2);
 	if (err_code == THREAD_FAILED)
-		ft_putstr_fd("failed to create a thread", 2);
+		ft_putstr_fd("ERROR_create_thread", 2);
 	if (err_code == INV_PHILO)
-		ft_putstr_fd("invalid philosopher_count: ", 2);
+		ft_putstr_fd("ERROR_philosopher_count: ", 2);
 	if (err_code == INV_DIE)
-		ft_putstr_fd("invalid time_to_die: ", 2);
+		ft_putstr_fd("ERROR_time_to_die: ", 2);
 	if (err_code == INV_EAT)
-		ft_putstr_fd("invalid time_to_eat: ", 2);
+		ft_putstr_fd("ERROR_time_to_eat: ", 2);
 	if (err_code == INV_SLEEP)
-		ft_putstr_fd("invalid time_to_sleep: ", 2);
+		ft_putstr_fd("ERROR_time_to_sleep: ", 2);
 	if (err_code == INV_REPEAT)
-		ft_putstr_fd("invalid repeat_times: ", 2);
+		ft_putstr_fd("ERROR_repeat_times: ", 2);
 	if (err_code == MAX_PHILO)
-		ft_putstr_fd("system may not be able to handle that many threads: ", 2);
+		ft_putstr_fd("TOO_much_philosophers ", 2);
 	if (param && err_code != INV_ARGS && err_code != NO_MEMORY && \
 			err_code != THREAD_FAILED)
 		ft_putstr_fd(param, 2);
@@ -68,7 +68,7 @@ int	philo_perror(char *param, t_philo_err err_code)
 	return (1);
 }
 
-void	philo_timestamp(t_list *philos, char *action, useconds_t t)
+void	timestamp(t_list *philos, char *action, useconds_t t)
 {
 	useconds_t	time;
 	t_philo		*philo;
@@ -80,7 +80,7 @@ void	philo_timestamp(t_list *philos, char *action, useconds_t t)
 	died = philo->data->died;
 	pthread_mutex_lock(&philo->data->eat_count_lock);
 	eat_count = philo->data->eat_count;
-	time = philo_get_time() - philo->data->init_time;
+	time = get_time() - philo->data->i_time;
 	if (philo->data->repeat_count * philo->data->philo_count != \
 			eat_count && (!died || action[7] == 'd'))
 	{
@@ -96,14 +96,14 @@ void	philo_timestamp(t_list *philos, char *action, useconds_t t)
 		ft_usleep(t);
 }
 
-void	*philo_exit(t_list *philos, char *param, t_philo_err err_code)
+void	*ft_exit(t_list *philos, char *param, t_philo_err err_code)
 {
 	t_philo	*philo;
 	t_list	*temp;
 
 	temp = philos;
 	if (err_code != END)
-		philo_perror(param, err_code);
+		ft_error(param, err_code);
 	while (philos)
 	{
 		philo = philos->content;

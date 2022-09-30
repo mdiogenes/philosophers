@@ -6,13 +6,13 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 11:41:20 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/09/29 13:44:46 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/09/30 11:30:58 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-useconds_t	philo_get_time(void)
+useconds_t	get_time(void)
 {
 	struct timeval	t;
 
@@ -25,13 +25,13 @@ int	ft_usleep(useconds_t usec)
 	useconds_t		before;
 	useconds_t		after;
 
-	before = philo_get_time();
+	before = get_time();
 	after = before;
 	while (after - before < usec)
 	{
 		if (usleep(usec) == -1)
 			return (-1);
-		after = philo_get_time();
+		after = get_time();
 	}
 	return (0);
 }

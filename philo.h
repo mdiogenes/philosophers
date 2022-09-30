@@ -6,7 +6,7 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:18:00 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/09/29 13:43:57 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/09/30 11:42:54 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef enum e_philo_err
 typedef struct s_philo_data
 {
 	int				philo_count;
-	useconds_t		init_time;
+	useconds_t		i_time;
 	long			repeat_count;
 	long long		die_time;
 	long long		eat_time;
@@ -81,13 +81,13 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
-int			philo_perror(char *param, t_philo_err err_code);
-void		*philo_exit(t_list *philos, char *param, t_philo_err err_code);
+int			ft_error(char *param, t_philo_err err_code);
+void		*ft_exit(t_list *philos, char *param, t_philo_err err_code);
 int			ft_usleep(useconds_t usec);
-useconds_t	philo_get_time(void);
+useconds_t	get_time(void);
 t_list		*philo_lst(t_philo_data *d);
 void		*philo_init(int philo_count, t_list *philos);
-void		philo_timestamp(t_list *philos, char *action, useconds_t t);
+void		timestamp(t_list *philos, char *action, useconds_t t);
 size_t		ft_strlen(const char *s);
 int			ft_putstr_fd(char *s, int fd);
 int			ft_isspace(char c);
