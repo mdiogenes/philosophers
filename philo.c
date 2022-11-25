@@ -6,13 +6,13 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 11:40:31 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/09/30 11:43:02 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/11/25 12:56:08 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	philo_actions(t_list *node, t_philo *philo, t_philo *next)
+void	philo_act(t_list *node, t_philo *philo, t_philo *next)
 {
 	pthread_mutex_lock(&philo->fork_lock);
 	timestamp(node, PHILO_TAKE_FORK, 0);
@@ -44,7 +44,7 @@ void	*start_thread(void *node)
 		(philo->data->repeat_count == -2 || ++i < philo->data->repeat_count))
 	{
 		pthread_mutex_unlock(&philo->data->died_lock);
-		philo_actions(node, philo, next);
+		philo_act(node, philo, next);
 		pthread_mutex_lock(&philo->data->died_lock);
 	}
 	pthread_mutex_unlock(&philo->data->died_lock);

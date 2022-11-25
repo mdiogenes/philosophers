@@ -6,7 +6,7 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 11:46:26 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/09/30 11:40:58 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/11/25 12:48:25 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	main(int argc, char **argv)
 	if (argc != 5 && argc != 6)
 	{
 		ft_exit(NULL, NULL, INV_ARGS);
-		printf("\nInstructions: philo <philo_count> <die_time>");
-		printf(" <eat_time> <sleep_time> [<repeat_times>]\n");
+		printf("\nInstructions: Number of philosophers <philo_count>");
+		printf("\n<die_time><eat_time><sleep_time> [<repeat_times>]");
 		return (1);
 	}
 	d = parse(argv);
