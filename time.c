@@ -6,7 +6,7 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 11:41:20 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/09/30 11:30:58 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/11/28 11:25:25 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ useconds_t	get_time(void)
 
 int	ft_usleep(useconds_t usec)
 {
-	useconds_t		before;
-	useconds_t		after;
+	useconds_t		bef;
+	useconds_t		af;
 
-	before = get_time();
-	after = before;
-	while (after - before < usec)
+	bef = get_time();
+	af = bef;
+	while (af - bef < usec)
 	{
 		if (usleep(usec) == -1)
 			return (-1);
-		after = get_time();
+		af = get_time();
 	}
 	return (0);
 }

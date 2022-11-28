@@ -6,20 +6,20 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 11:46:26 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/11/25 12:48:25 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/11/28 11:10:11 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static t_philo_data	parse(char **argv)
+static t_philo_data	parser(char **argv)
 {
 	t_philo_data	d;
 
 	d.philo_count = ft_atoi(argv[1]);
 	if (d.philo_count <= 0)
 		ft_exit(NULL, argv[1], INV_PHILO);
-	if (d.philo_count > 800)
+	if (d.philo_count > 500)
 		ft_exit(NULL, argv[1], MAX_PHILO);
 	d.die_time = ft_atoi(argv[2]);
 	if (d.die_time == -1)
@@ -48,11 +48,11 @@ int	main(int argc, char **argv)
 	if (argc != 5 && argc != 6)
 	{
 		ft_exit(NULL, NULL, INV_ARGS);
-		printf("\nInstructions: Number of philosophers <philo_count>");
+		printf("\nMANUAL:Number of philosophers <philo_count>");
 		printf("\n<die_time><eat_time><sleep_time> [<repeat_times>]");
 		return (1);
 	}
-	d = parse(argv);
+	d = parser(argv);
 	if (d.philo_count <= 0 || d.philo_count > 800 || d.die_time == -1 || \
 		d.eat_time == -1 || d.sleep_time == -1 || d.repeat_count == -1 || \
 		!d.repeat_count)

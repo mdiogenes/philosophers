@@ -6,11 +6,11 @@
 #    By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/29 11:33:17 by msoler-e          #+#    #+#              #
-#    Updated: 2022/09/14 10:16:01 by msoler-e         ###   ########.fr        #
+#    Updated: 2022/11/28 11:46:41 by msoler-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC		= main.c numbers.c philo.c strings.c utils.c lists.c time.c
+SRC		= main.c num.c philo.c string.c util.c list.c time.c
 
 DIR		= libft/
 

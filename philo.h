@@ -6,7 +6,7 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:18:00 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/11/25 12:58:42 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/11/28 11:47:58 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,18 @@
 # define PHILO_H
 
 # include <stdio.h>
-# include <limits.h>
-# include <sys/param.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include <signal.h>
-# include <termios.h>
-# include <dirent.h>
-# include <sys/types.h>
-# include <sys/wait.h>
-# include <sys/stat.h>
-# include <errno.h>
 # include <string.h>
 # include <sys/time.h>
-# include <stdio.h>
 # include <pthread.h>
-# include <unistd.h>
 
-# define PHILO_EAT "\033[1;93m is eating \033[0;39m"
-# define PHILO_SLEEP "\033[1;95m is sleeping \033[0;39m"
-# define PHILO_THINK "\033[1;90m is thinking \033[0;39m"
-# define PHILO_TAKE_FORK "\033[1;94m has taken a fork \033[0;39m"
-# define PHILO_DIE "\033[1;91mdied \033[0;39m"
+# define PHILO_EAT "\033[1;33m is eating \033[0;39m"
+# define PHILO_SLEEP "\033[1;32m is sleeping \033[0;39m"
+# define PHILO_THINK "\033[1;36m is thinking \033[0;39m"
+# define PHILO_TAKE_FORK "\033[1;35m has taken a fork \033[0;39m"
+# define PHILO_DIE "\033[1;31mdied \033[0;39m"
 
 typedef enum e_philo_err
 {
@@ -95,7 +84,6 @@ int			ft_isdigit(int c);
 long long	ft_atoi(const char *nptr);
 int			ft_putchar_fd(char c, int fd);
 int			ft_putnbr_fd(long unsigned n, int fd);
-void		ft_free_matrix(char ***m);
 int			ft_putnchar_fd(char c, int fd, int n);
 int			ft_nbrlen(long n, int base);
 void		ft_lstadd_back(t_list **lst, t_list *newnode);
