@@ -102,5 +102,6 @@ void	*philo_init(int philo_count, t_list *philos)
 		pthread_join(philo->thread_id, NULL);
 		start = start->next;
 	}
+	//pthread_destroy
 	return (NULL);
 }
