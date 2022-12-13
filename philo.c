@@ -6,7 +6,7 @@
 /*   By: msoler-e <msoler-e@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 11:40:31 by msoler-e          #+#    #+#             */
-/*   Updated: 2022/11/28 11:25:37 by msoler-e         ###   ########.fr       */
+/*   Updated: 2022/12/13 10:25:22 by msoler-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,5 @@ void	*philo_init(int philo_count, t_list *philos)
 		pthread_join(philo->thread_id, NULL);
 		start = start->next;
 	}
-	//pthread_destroy
 	return (NULL);
 }
